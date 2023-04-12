@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: "http://localhost:8000/api/v1",
   headers: {
     accept: "application/json",
     "Content-Type": "application/json",
   },
+  withCredentials:true
 });
 
 export const postRequest = async (endPoint, body) => {
@@ -15,5 +16,10 @@ export const postRequest = async (endPoint, body) => {
 
 export const getRequest = async (endPoint) => {
   const response = await api.get(endPoint).catch(err => err.response);
+  return response;
+}
+
+export const patchRequest = async (endPoint,body) => {
+  const response = await api.patch(endPoint,body).catch(err => err.response);
   return response;
 }
