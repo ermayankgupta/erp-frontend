@@ -64,3 +64,15 @@ export const years = [
     value:"2020",
   },
 ]
+
+export const attendenceRequest = [
+  {
+    value:"Pending"
+  },
+  {
+    value:"Approved"
+  },
+  {
+    value:"Rejected"
+  },
+]

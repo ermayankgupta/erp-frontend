@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: "https://jolly-moth-coveralls.cyclic.app/api/v1",
   headers: {
     accept: "application/json",
     "Content-Type": "application/json",

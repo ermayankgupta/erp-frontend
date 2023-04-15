@@ -4,8 +4,8 @@ import { months, years } from "../../constants/selectoptions";
 import { getRequest } from "../../Utils/Api";
 import moment from "moment";
 import { toast } from "react-toastify";
-import { MdOutlineModeEditOutline } from "react-icons/md";
 import useAxiosPrivate from "../../Hooks/Auth/useAxiosPrivate";
+import EditAttendance from "./EditAttendence";
 
 const Attendence = () => {
   console.log("Attendance component load");
@@ -74,16 +74,15 @@ const Attendence = () => {
     },
     {
       name: "",
-      selector: (row) => (
-        <>
-          <div className="flex justify-between">
-            <button className="btn btn-sm my-auto mr-4 cursor-pointer">
-              {" "}
-              <MdOutlineModeEditOutline />
-            </button>
-          </div>
-        </>
-      ),
+      cell: (row) => {
+        console.log(row);
+
+        return (
+          <>
+            <EditAttendance attendenceId={row._id} />
+          </>
+        );
+      },
     },
   ];
 
@@ -93,8 +92,8 @@ const Attendence = () => {
       if (response.status === 500) {
         toast.error(response.data.error);
       }
-      // getAttendences();
-      // getAttendenceStatus();
+      getAttendences();
+      getAttendenceStatus();
     } catch (err) {
       console.log(err);
     }
@@ -290,6 +289,7 @@ const Attendence = () => {
           >
             {months.map((month) => (
               <option
+                key={month}
                 value={month.value}
                 selected={month.value === new Date().getMonth() + 1}
               >
@@ -306,6 +306,7 @@ const Attendence = () => {
           >
             {years.map((year) => (
               <option
+                key={year}
                 value={year.value}
                 selected={year.value == new Date().getFullYear()}
               >

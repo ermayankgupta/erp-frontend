@@ -9,6 +9,7 @@ import Profile from "../Pages/Profile"
 import paths from "./path";
 import ChangePassword from "../Pages/Change Password/ChangePassword";
 import Holiday from "../Pages/Holiday";
+import ManageAttendence from "../Pages/Attendence/ManageAttendence";
 
 const routes = [
   {
@@ -63,7 +64,7 @@ const routes = [
     path: paths.manageAttendence(),
     name: "Manage Attendence",
     checkname: "manage_attendence",
-    element: Attendence,
+    element: ManageAttendence,
   },
   {
     path: paths.getEmployee(),
