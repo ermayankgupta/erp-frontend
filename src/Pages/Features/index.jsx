@@ -16,17 +16,17 @@ const Features = () => {
   const columns = [
     {
       name: "Name",
-      maxWidth: "400px",
+      maxWidth: "150px",
       selector: (row) => row?.name,
     },
     {
       name: "Checkname",
-      maxWidth: "400px",
+      maxWidth: "150px",
       selector: (row) => row?.checkname,
     },
     {
       name: "Assign To",
-      maxWidth: "800px",
+      maxWidth: "100%",
       selector: (row) => (
         <>
           <div className="flex gap-10">

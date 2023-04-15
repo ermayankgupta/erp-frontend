@@ -29,33 +29,33 @@ const DashboardLayout = () => {
     }
   }, [isLoading]);
 
-  useEffect(() => {
-    const inactivityTime = 15000;
-    let timeoutId;
+  // useEffect(() => {
+  //   const inactivityTime = 15000;
+  //   let timeoutId;
 
-    const resetTimer = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        dispatch({ type: "logout" })
-        navigate('/login');
-      }, inactivityTime);
-    };
+  //   const resetTimer = () => {
+  //     clearTimeout(timeoutId);
+  //     timeoutId = setTimeout(() => {
+  //       dispatch({ type: "logout" })
+  //       navigate('/login');
+  //     }, inactivityTime);
+  //   };
 
-    resetTimer();
+  //   resetTimer();
 
-    const onActivity = () => {
-      resetTimer();
-    };
+  //   const onActivity = () => {
+  //     resetTimer();
+  //   };
 
-    document.addEventListener('mousemove', onActivity);
-    document.addEventListener('keypress', onActivity);
+  //   document.addEventListener('mousemove', onActivity);
+  //   document.addEventListener('keypress', onActivity);
 
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener('mousemove', onActivity);
-      document.removeEventListener('keypress', onActivity);
-    };
-  }, [navigate]);
+  //   return () => {
+  //     clearTimeout(timeoutId);
+  //     document.removeEventListener('mousemove', onActivity);
+  //     document.removeEventListener('keypress', onActivity);
+  //   };
+  // }, [navigate]);
 
   useEffect(() => {
     const verifyRefreshToken = async () => {
